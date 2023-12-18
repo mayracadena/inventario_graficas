@@ -1,7 +1,7 @@
 <?php include('../model/db.php');
 include('../includes/cabeza.php');
 ?>
-
+<main class="container p-4">
 <div class="row">
     <div class="col-md-4">
         <!-- mensajes de alerta -->
@@ -18,19 +18,29 @@ include('../includes/cabeza.php');
 
         <!-- Aagregar un nuevo producto -->
         <div class="card card-body">
-            <form action="guardar_grafica.php" method="POST">
+            <form action="../controller/producto_control.php" method="POST">
                 <div class="form-group">
+                    Nombre del producto:
                     <input type="text" name="nombre" class="form-control" placeholder="Nombre del producto" autofocus>
                 </div>
                 <div class="form-group">
+                    <label class="label label-success">Descripción:</label>
                     <textarea name="descripcion" rows="2" class="form-control" placeholder="Descripción del producto"></textarea>
                 </div>
                 <div class="form-group">
-                    <div class="imput-group mb-2">
+                    Valor del producto:
+                    <div class="input-group mb-3">
+
                         <span class="input-group-text">$</span>
-                        <input type="number" class="form-control" placeholder="Ingrese valor del producto">
+                        <input type="number" name="precio" class="form-control" placeholder="Ingrese valor del producto">
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="label label-success">Imagen:</label>
+                    <input type="file" name="imagen_g" class="form-control" accept="image/png, image/jpeg">
+                </div>
+        <br>
                 <input type="submit" name="guardar_grafica" class="btn btn-success btn-block" value="Guardar">
             </form>
         </div>
@@ -51,6 +61,6 @@ include('../includes/cabeza.php');
         </table>
     </div>
 </div>
-
+</main>
 
 <?php include('../includes/pie.php'); ?>
